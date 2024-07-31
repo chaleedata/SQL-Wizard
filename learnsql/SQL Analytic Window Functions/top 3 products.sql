@@ -1,4 +1,5 @@
 -- show  the top 3 products in each category
+
 WITH rankproduct AS (
     SELECT  category,
             product,
