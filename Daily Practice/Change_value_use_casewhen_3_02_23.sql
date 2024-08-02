@@ -25,7 +25,5 @@ Output:
 +----+------+-----+--------+
 
 -- Change sex f to m and m to f
-
-
 update Salary set sex = case sex when 'f' then 'm'
 else 'f' end;
