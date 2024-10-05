@@ -1,3 +1,7 @@
+-- Step 1: Calculate total amount earned by each salesman grouped by their ID and city
+-- Step 2: Calculate the average total amount earned for each city
+-- Step 3: Compare each salesman's total earnings with the city average
+
 WITH data_total_amount AS (
     SELECT b.id, b.city_id, b.first_name, b.last_name, SUM(amount_earned) AS total_amount
     FROM daily_sales a
