@@ -18,3 +18,24 @@ SELECT * FROM food_data LIMIT 1;
 
 -- Pros: More readable and simple to understand
 -- Cons: Performance it sort the entire result set before picking the top row and Scalability for large datasets
+
+
+--Second use HAVING clause
+SELECT
+  i.item_id,
+  i.item_name,
+  SUM(quantity)
+FROM item i
+JOIN ticket_item ti
+  ON i.item_id = ti.item_id
+GROUP BY 
+  i.item_id, 
+  i.item_name
+HAVING SUM(quantity) >= ALL(
+  SELECT
+    SUM(quantity)
+  FROM ticket_item
+  GROUP BY item_id
+);
+-- Pros: Better performance and Precise filtering
+-- Cons: More complex: The query is less intuitive to read and Dependent on optimizer
